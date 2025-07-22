@@ -6,6 +6,16 @@ export const fadeVariants: Variants = {
   visible: { opacity: 1 },
 };
 
+export const fadeInUpVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const fadeInDownVariants: Variants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export const slideUpVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
@@ -92,6 +102,46 @@ export function FadeIn({
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeVariants}
+      transition={{ duration, delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function FadeInUp({
+  children,
+  className,
+  delay = 0,
+  duration = 0.6,
+}: AnimatedElementProps) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInUpVariants}
+      transition={{ duration, delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function FadeInDown({
+  children,
+  className,
+  delay = 0,
+  duration = 0.6,
+}: AnimatedElementProps) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInDownVariants}
       transition={{ duration, delay }}
       className={className}
     >
