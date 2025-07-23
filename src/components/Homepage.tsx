@@ -10,6 +10,11 @@ import {
   HoverScale,
   PageTransition,
 } from "./animations/motion";
+import { LuNotebookPen } from "react-icons/lu";
+import { SiMediamarkt, SiAppstore } from "react-icons/si";
+import { RiShoppingBag4Line } from "react-icons/ri";
+import { PiChairThin } from "react-icons/pi";
+import { MdOutlineRealEstateAgent } from "react-icons/md";
 
 export function Homepage() {
   return (
@@ -82,9 +87,66 @@ export function Homepage() {
             <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
               <div className="w-full flex-col space-y-2">
                 <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
-                  Customer Review and Testimonials
+                  Offered Services
                 </h2>
                 <div className="w-full h-1 bg-[#1a8671]"></div>
+              </div>
+
+              <div className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]">
+                <div className="flex flex-col gap-4">
+                  <LuNotebookPen className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Online Education</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                      Providing educational content and courses through digital content.
+                    </span>
+                  </p>
+                </div>
+                 <div className="flex flex-col gap-4">
+                  <SiMediamarkt className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Digital Medai and content creation</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                      Producing and distributing digital content such as articles, videos, and podcasts.
+                    </span>
+                  </p>
+                </div>
+                 <div className="flex flex-col gap-4">
+                  <RiShoppingBag4Line className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Dropshipping</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                      Selling products through an online store without holding inventory; products are shipped directly from the supplier.
+                    </span>
+                  </p>
+                </div>
+                 <div className="flex flex-col gap-4">
+                  <PiChairThin className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Digital Products</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                      Selling intangible products that can be delivered electronically.
+                    </span>
+                  </p>
+                </div>
+                 <div className="flex flex-col gap-4">
+                  <MdOutlineRealEstateAgent className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Online Real Estate</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                     Managing and transacting real estate properties through digital platforms.
+                    </span>
+                  </p>
+                </div>
+                 <div className="flex flex-col gap-4">
+                  <SiAppstore className="text-[#1a8671] text-2xl" size={70}/>
+                  <p className="flex flex-col gap-4 max-w-[320px]">
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Mobile Apps</span>
+                    <span className="font-norma text-lg text-[#1a8671]">
+                      Developing and offering applications for smartphones and tablets.
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>
