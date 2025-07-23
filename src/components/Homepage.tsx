@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   FadeIn,
   FadeInUp,
@@ -45,33 +45,30 @@ export function Homepage() {
               <StaggerContainer staggerDelay={0.2} childrenDelay={0.8}>
                 <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <FadeInUp>
-                    <HoverScale className="w-full flex flex-col items-center justify-center">
-                      <div className="max-w-[400px] max-h-[400px] w-full">
-                        <Image
-                          src="/Images/great-content-writing.jpg"
-                          alt="Strategy Image"
-                          width={100}
-                          height={100}
-                          className="w-full"
-                        />
-                      </div>
-                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px]">
+                    <HoverScale className="w-full flex flex-col items-center justify-center cursor-pointer">
+                      <div
+                        className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
+                        style={{
+                          backgroundImage:
+                            "url('	https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/b072e267-7e84-46fe-a9b3-23084ec2d5b5.jpg')",
+                        }}
+                      ></div>
+                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
                         CONTENT WRITING
                       </p>
                     </HoverScale>
                   </FadeInUp>
                   <FadeInDown>
-                    <HoverScale className="w-full flex flex-col items-center justify-center">
-                      <div className="max-w-[450px] max-h-[500px] w-full">
-                        <Image
-                          src="/Images/youtube-promotion.jpg"
-                          alt="Strategy Image"
-                          width={100}
-                          height={100}
-                          className="w-full"
-                        />
-                      </div>
-                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px]">
+                    <HoverScale className="w-full flex flex-col items-center justify-center cursor-pointer">
+                      <div
+                        className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
+                        style={{
+                          backgroundImage:
+                            "url('https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/24ed4b2e-ad55-43a3-8cc0-f5be9d1c47e7.jpg')",
+                        }}
+                      ></div>
+
+                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
                         Youtube Promotion
                       </p>
                     </HoverScale>
