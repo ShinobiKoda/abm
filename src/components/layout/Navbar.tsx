@@ -2,14 +2,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaYoutube } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa6";
 import {
-  FadeIn,
-  FadeInDown,
-  HoverScale,
-  StaggerContainer,
+  fadeInDown,
+  fadeInUp,
+  staggerChildren,
+  staggerItem,
+  navbarStaggerChildren,
+  navbarStaggerItem,
+  scaleOnHover,
+  fadeIn,
 } from "../animations/motion";
 
 export function Navbar() {
@@ -20,73 +24,123 @@ export function Navbar() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <nav className="fixed top-0 z-50 left-0 w-full bg-white/95 backdrop-blur-sm shadow-sm">
+    <div>
+      <motion.nav
+        className="fixed top-0 z-50 left-0 w-full bg-white/95 backdrop-blur-sm shadow-sm"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInDown}
+      >
         <div className="w-full max-w-[1440px] mx-auto">
-          <div className="w-full hidden lg:flex lg:items-center lg:justify-between py-6 lg:px-12">
-            <div className="flex items-center gap-12">
-              <FadeIn delay={0.2}>
-                <HoverScale scale={1.1}>
+          <motion.div
+            className="w-full hidden lg:flex lg:items-center lg:justify-between py-6 lg:px-12"
+            initial="hidden"
+            animate="visible"
+            variants={staggerChildren}
+          >
+            <motion.div
+              className="flex items-center gap-12"
+              variants={fadeInUp}
+            >
+              <motion.div variants={scaleOnHover} whileHover="hover">
+                <div>
                   <Image
                     src="https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/a36a85e4-f75d-40ad-a202-a0b8e5d08585.jpeg"
                     alt="Logo Image"
                     width={50}
                     height={50}
                   />
-                </HoverScale>
-              </FadeIn>
-              <StaggerContainer staggerDelay={0.1} childrenDelay={0.4}>
-                <ul className="flex items-center gap-10 *:cursor-pointer *:hover:opacity-85">
-                  <FadeInDown>
-                    <li>Home</li>
-                  </FadeInDown>
-                  <FadeInDown>
-                    <li>About</li>
-                  </FadeInDown>
-                  <FadeInDown>
-                    <li>Donate</li>
-                  </FadeInDown>
-                  <FadeInDown>
-                    <li>Contact</li>
-                  </FadeInDown>
-                </ul>
-              </StaggerContainer>
-            </div>
+                </div>
+              </motion.div>
+              <motion.div
+                variants={navbarStaggerChildren}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.ul
+                  className="flex items-center gap-10 *:cursor-pointer *:hover:opacity-85"
+                  variants={navbarStaggerChildren}
+                >
+                  <motion.li
+                    variants={navbarStaggerItem}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Home
+                  </motion.li>
+                  <motion.li
+                    variants={navbarStaggerItem}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    About
+                  </motion.li>
+                  <motion.li
+                    variants={navbarStaggerItem}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Donate
+                  </motion.li>
+                  <motion.li
+                    variants={navbarStaggerItem}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Contact
+                  </motion.li>
+                </motion.ul>
+              </motion.div>
+            </motion.div>
 
-            <StaggerContainer staggerDelay={0.2} childrenDelay={0.6}>
-              <div className="flex items-center gap-8 *:cursor-pointer *:hover:opacity-85">
-                <FadeIn>
-                  <HoverScale scale={1.2}>
+            <motion.div>
+              <motion.div
+                variants={navbarStaggerChildren}
+                initial="hidden"
+                animate="visible"
+                className="flex items-center gap-8 *:cursor-pointer *:hover:opacity-85"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  variants={navbarStaggerItem}
+                >
+                  <div>
                     <Link
                       href="https://www.youtube.com/@Djisrael27"
                       target="_blank"
                     >
                       <FaYoutube size={35} />
                     </Link>
-                  </HoverScale>
-                </FadeIn>
+                  </div>
+                </motion.div>
 
-                <FadeIn>
-                  <HoverScale scale={1.2}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  variants={navbarStaggerItem}
+                >
+                  <div>
                     <Link
                       href="https://www.pinterest.com/akinpelu_israel/"
                       target="_blank"
                     >
                       <FaPinterestP size={35} />
                     </Link>
-                  </HoverScale>
-                </FadeIn>
-              </div>
-            </StaggerContainer>
-          </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
-          <div className="flex items-center justify-between px-4 lg:hidden py-4 w-full border-b border-gray-200">
-            <FadeIn delay={0.2}>
-              <HoverScale scale={1.1}>
+          <motion.div
+            className="flex items-center justify-between px-4 lg:hidden py-4 w-full border-b border-gray-200"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInDown}
+          >
+            <motion.div variants={scaleOnHover} whileHover="hover">
+              <div>
                 <div className="w-[43px] h-[43px]">
                   <Image
                     src="https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/a36a85e4-f75d-40ad-a202-a0b8e5d08585.jpeg"
@@ -96,9 +150,9 @@ export function Navbar() {
                     className="w-full"
                   />
                 </div>
-              </HoverScale>
-            </FadeIn>
-            <FadeIn delay={0.4}>
+              </div>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <button
                 onClick={toggleMenu}
                 className="flex flex-col h-6 justify-between w-8 relative cursor-pointer"
@@ -107,160 +161,134 @@ export function Navbar() {
                 <motion.div
                   className="h-1 bg-black w-full origin-center"
                   animate={
-                    isMenuOpen ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }
+                    isMenuOpen ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.3 }}
                 />
                 <motion.div
                   className="h-1 bg-black w-full"
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.3 }}
                 />
                 <motion.div
                   className="h-1 bg-black w-full origin-center"
                   animate={
-                    isMenuOpen ? { rotate: -45, y: -19 } : { rotate: 0, y: 0 }
+                    isMenuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.3 }}
                 />
               </button>
-            </FadeIn>
-          </div>
-
-          <motion.div
-            className="lg:hidden bg-white border-t border-gray-200 overflow-hidden shadow-lg rounded-md"
-            initial={false}
-            animate={
-              isMenuOpen
-                ? { height: "auto", opacity: 1 }
-                : { height: 0, opacity: 0 }
-            }
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <motion.div
-              className="px-4 py-6 space-y-4"
-              initial="hidden"
-              animate={isMenuOpen ? "visible" : "hidden"}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                    delayChildren: 0.1,
-                  },
-                },
-              }}
-            >
-              <ul className="space-y-4 text-center *:cursor-pointer">
-                <motion.li
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Link
-                    href="/"
-                    className="block text-lg hover:text-blue-600 transition-colors"
-                  >
-                    Home
-                  </Link>
-                </motion.li>
-                <motion.li
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Link
-                    href="/#"
-                    className="block text-lg hover:text-blue-600 transition-colors"
-                  >
-                    About
-                  </Link>
-                </motion.li>
-                <motion.li
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Link
-                    href="/#"
-                    className="block text-lg hover:text-blue-600 transition-colors"
-                  >
-                    Donate
-                  </Link>
-                </motion.li>
-                <motion.li
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Link
-                    href="/#"
-                    className="block text-lg hover:text-blue-600 transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </motion.li>
-              </ul>
-              <motion.div
-                className="pt-4 border-t border-gray-200 flex items-center gap-4 justify-center"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.2,
-                      delayChildren: 0.4,
-                    },
-                  },
-                }}
-              >
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <HoverScale scale={1.2}>
-                    <Link
-                      href="https://www.youtube.com/@Djisrael27"
-                      target="_blank"
-                    >
-                      <FaYoutube size={35} />
-                    </Link>
-                  </HoverScale>
-                </motion.div>
-
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <HoverScale scale={1.2}>
-                    <Link
-                      href="https://www.pinterest.com/akinpelu_israel/"
-                      target="_blank"
-                    >
-                      <FaPinterestP size={35} />
-                    </Link>
-                  </HoverScale>
-                </motion.div>
-              </motion.div>
             </motion.div>
           </motion.div>
+
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                className="lg:hidden bg-white border-t border-gray-200 overflow-hidden shadow-lg rounded-md"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <motion.div
+                  className="px-4 py-6 space-y-4"
+                  initial="hidden"
+                  animate="visible"
+                  variants={staggerChildren}
+                >
+                  <motion.ul
+                    className="space-y-4 text-center *:cursor-pointer"
+                    variants={staggerChildren}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <motion.li
+                      variants={staggerItem}
+                      whileHover={{ scale: 1.05, color: "#2563eb" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href="/"
+                        className="block text-lg hover:text-blue-600 transition-colors"
+                      >
+                        Home
+                      </Link>
+                    </motion.li>
+                    <motion.li
+                      variants={staggerItem}
+                      whileHover={{ scale: 1.05, color: "#2563eb" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href="/#"
+                        className="block text-lg hover:text-blue-600 transition-colors"
+                      >
+                        About
+                      </Link>
+                    </motion.li>
+                    <motion.li
+                      variants={staggerItem}
+                      whileHover={{ scale: 1.05, color: "#2563eb" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href="/#"
+                        className="block text-lg hover:text-blue-600 transition-colors"
+                      >
+                        Donate
+                      </Link>
+                    </motion.li>
+                    <motion.li
+                      variants={staggerItem}
+                      whileHover={{ scale: 1.05, color: "#2563eb" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href="/#"
+                        className="block text-lg hover:text-blue-600 transition-colors"
+                      >
+                        Contact
+                      </Link>
+                    </motion.li>
+                  </motion.ul>
+                  <motion.div
+                    className="pt-4 border-t border-gray-200 flex items-center gap-4 justify-center"
+                    variants={fadeIn}
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <div>
+                        <Link
+                          href="https://www.youtube.com/@Djisrael27"
+                          target="_blank"
+                        >
+                          <FaYoutube size={35} />
+                        </Link>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <div>
+                        <Link
+                          href="https://www.pinterest.com/akinpelu_israel/"
+                          target="_blank"
+                        >
+                          <FaPinterestP size={35} />
+                        </Link>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </nav>
-    </motion.div>
+      </motion.nav>
+    </div>
   );
 }

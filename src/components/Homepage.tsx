@@ -1,14 +1,12 @@
 "use client";
-// import Image from "next/image";
+import { motion } from "framer-motion";
 import {
-  FadeIn,
-  FadeInUp,
-  FadeInDown,
-  SlideUp,
-  StaggerContainer,
-  ScaleIn,
-  HoverScale,
-  PageTransition,
+  fadeInUp,
+  fadeIn,
+  fadeInDown,
+  staggerChildren,
+  zoomIn,
+  scaleOnHover,
 } from "./animations/motion";
 import { LuNotebookPen } from "react-icons/lu";
 import { SiMediamarkt, SiAppstore } from "react-icons/si";
@@ -18,27 +16,47 @@ import { MdOutlineRealEstateAgent } from "react-icons/md";
 
 export function Homepage() {
   return (
-    <PageTransition>
-      <div className="w-full py-8">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div className="w-full py-8 mt-[100px]">
         <section className="bg-[#1a8671]"></section>
 
         <section>
-          <FadeIn delay={0.2}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeIn}
+          >
             <h1 className="text-xl lg:text-4xl text-center font-semibold">
               Affiliate <span className=" text-[#1a8671]">Business</span>{" "}
               Marketing
             </h1>
-          </FadeIn>
-          <ScaleIn delay={0.4}>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={zoomIn}
+          >
             <div
               className="w-full h-[500px] bg-center bg-cover mt-8"
               style={{
                 backgroundImage: "url('/Images/business-meeting.jpg')",
               }}
             ></div>
-          </ScaleIn>
+          </motion.div>
 
-          <SlideUp delay={0.6}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <div className="mt-28 w-full px-4 lg:px-12 max-w-[1440px] mx-auto">
               <div className="w-full flex-col space-y-2">
                 <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
@@ -47,10 +65,19 @@ export function Homepage() {
                 <div className="w-full h-1 bg-[#1a8671]"></div>
               </div>
 
-              <StaggerContainer staggerDelay={0.2} childrenDelay={0.8}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={staggerChildren}
+              >
                 <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <FadeInUp>
-                    <HoverScale className="w-full flex flex-col items-center justify-center cursor-pointer">
+                  <motion.div variants={fadeInUp}>
+                    <motion.div
+                      variants={scaleOnHover}
+                      whileHover="hover"
+                      className="w-full flex flex-col items-center justify-center cursor-pointer"
+                    >
                       <div
                         className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
                         style={{
@@ -61,10 +88,14 @@ export function Homepage() {
                       <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
                         CONTENT WRITING
                       </p>
-                    </HoverScale>
-                  </FadeInUp>
-                  <FadeInDown>
-                    <HoverScale className="w-full flex flex-col items-center justify-center cursor-pointer">
+                    </motion.div>
+                  </motion.div>
+                  <motion.div variants={fadeInDown}>
+                    <motion.div
+                      variants={scaleOnHover}
+                      whileHover="hover"
+                      className="w-full flex flex-col items-center justify-center cursor-pointer"
+                    >
                       <div
                         className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
                         style={{
@@ -76,14 +107,19 @@ export function Homepage() {
                       <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
                         Youtube Promotion
                       </p>
-                    </HoverScale>
-                  </FadeInDown>
+                    </motion.div>
+                  </motion.div>
                 </div>
-              </StaggerContainer>
+              </motion.div>
             </div>
-          </SlideUp>
+          </motion.div>
 
-          <FadeIn delay={1.2}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeIn}
+          >
             <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
               <div className="w-full flex-col space-y-2">
                 <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
@@ -92,66 +128,109 @@ export function Homepage() {
                 <div className="w-full h-1 bg-[#1a8671]"></div>
               </div>
 
-              <div className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]">
-                <div className="flex flex-col gap-4">
-                  <LuNotebookPen className="text-[#1a8671] text-2xl" size={70}/>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={staggerChildren}
+                className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]"
+              >
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <LuNotebookPen
+                    className="text-[#1a8671] text-2xl"
+                    size={70}
+                  />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Online Education</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Online Education
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                      Providing educational content and courses through digital content.
+                      Providing educational content and courses through digital
+                      content.
                     </span>
                   </p>
-                </div>
-                 <div className="flex flex-col gap-4">
-                  <SiMediamarkt className="text-[#1a8671] text-2xl" size={70}/>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <SiMediamarkt className="text-[#1a8671] text-2xl" size={70} />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Digital Medai and content creation</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Digital Medai and content creation
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                      Producing and distributing digital content such as articles, videos, and podcasts.
+                      Producing and distributing digital content such as
+                      articles, videos, and podcasts.
                     </span>
                   </p>
-                </div>
-                 <div className="flex flex-col gap-4">
-                  <RiShoppingBag4Line className="text-[#1a8671] text-2xl" size={70}/>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <RiShoppingBag4Line
+                    className="text-[#1a8671] text-2xl"
+                    size={70}
+                  />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Dropshipping</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Dropshipping
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                      Selling products through an online store without holding inventory; products are shipped directly from the supplier.
+                      Selling products through an online store without holding
+                      inventory; products are shipped directly from the
+                      supplier.
                     </span>
                   </p>
-                </div>
-                 <div className="flex flex-col gap-4">
-                  <PiChairThin className="text-[#1a8671] text-2xl" size={70}/>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <PiChairThin className="text-[#1a8671] text-2xl" size={70} />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Digital Products</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Digital Products
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                      Selling intangible products that can be delivered electronically.
+                      Selling intangible products that can be delivered
+                      electronically.
                     </span>
                   </p>
-                </div>
-                 <div className="flex flex-col gap-4">
-                  <MdOutlineRealEstateAgent className="text-[#1a8671] text-2xl" size={70}/>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <MdOutlineRealEstateAgent
+                    className="text-[#1a8671] text-2xl"
+                    size={70}
+                  />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Online Real Estate</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Online Real Estate
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                     Managing and transacting real estate properties through digital platforms.
+                      Managing and transacting real estate properties through
+                      digital platforms.
                     </span>
                   </p>
-                </div>
-                 <div className="flex flex-col gap-4">
-                  <SiAppstore className="text-[#1a8671] text-2xl" size={70}/>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                  <SiAppstore className="text-[#1a8671] text-2xl" size={70} />
                   <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">Mobile Apps</span>
+                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                      Mobile Apps
+                    </span>
                     <span className="font-norma text-lg text-[#1a8671]">
-                      Developing and offering applications for smartphones and tablets.
+                      Developing and offering applications for smartphones and
+                      tablets.
                     </span>
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
-          </FadeIn>
+          </motion.div>
+
+          <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
+            <div className="w-full flex-col space-y-2">
+              <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
+                Customer Reviews and Testimonials
+              </h2>
+              <div className="w-full h-1 bg-[#1a8671]"></div>
+            </div>
+          </div>
         </section>
       </div>
-    </PageTransition>
+    </motion.div>
   );
 }
