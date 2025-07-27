@@ -33,7 +33,7 @@ export function Navbar() {
       >
         <div className="w-full max-w-[1440px] mx-auto">
           <motion.div
-            className="w-full hidden lg:flex lg:items-center lg:justify-between py-6 lg:px-12"
+            className="w-full hidden lg:flex lg:items-center lg:justify-between py-2 lg:px-12"
             initial="hidden"
             animate="visible"
             variants={staggerChildren}
@@ -134,7 +134,7 @@ export function Navbar() {
           </motion.div>
 
           <motion.div
-            className="flex items-center justify-between px-4 lg:hidden py-4 w-full border-b border-gray-200"
+            className="flex items-center justify-between px-4 lg:hidden py-1 w-full border-b border-gray-200"
             initial="hidden"
             animate="visible"
             variants={fadeInDown}

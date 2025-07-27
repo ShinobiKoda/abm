@@ -17,22 +17,31 @@ import { MdOutlineRealEstateAgent } from "react-icons/md";
 export function Homepage() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      animate="visible"
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 0.6,
+            delay: 0.1,
+          },
+        },
+      }}
     >
-      <div className="w-full py-8 mt-[100px]">
+      <div className="w-full py-8 mt-[10px]">
         <section className="bg-[#1a8671]"></section>
 
         <section>
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeIn}
           >
-            <h1 className="text-xl lg:text-4xl text-center font-semibold">
+            <h1 className="text-2xl lg:text-4xl text-center font-semibold">
               Affiliate <span className=" text-[#1a8671]">Business</span>{" "}
               Marketing
             </h1>
@@ -40,7 +49,7 @@ export function Homepage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={zoomIn}
           >
             <div
@@ -54,7 +63,7 @@ export function Homepage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={fadeInUp}
           >
             <div className="mt-28 w-full px-4 lg:px-12 max-w-[1440px] mx-auto">
@@ -68,7 +77,7 @@ export function Homepage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={staggerChildren}
               >
                 <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -117,7 +126,7 @@ export function Homepage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={fadeIn}
           >
             <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
@@ -131,7 +140,7 @@ export function Homepage() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={staggerChildren}
                 className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]"
               >

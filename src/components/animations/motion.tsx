@@ -1,11 +1,22 @@
 export const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
 };
 
 export const fadeIn = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8 } },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1.0,
+    },
+  },
 };
 
 export const slideInFromRight = {
@@ -18,8 +29,8 @@ export const staggerChildren = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
@@ -41,7 +52,7 @@ export const staggerItem = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
     },
   },
 };
@@ -59,15 +70,23 @@ export const navbarStaggerItem = {
 
 export const fadeInDown = {
   hidden: { opacity: 0, y: -30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
 };
 
 export const zoomIn = {
-  hidden: { scale: 0.8, opacity: 0 },
+  hidden: { scale: 0.95, opacity: 0 },
   visible: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 0.7 },
+    transition: {
+      duration: 0.8,
+    },
   },
 };
 
