@@ -103,7 +103,7 @@ export const scaleOnHover: Variants = {
     },
   },
   hover: {
-    scale: 1.02,
+    scale: 1.2,
     transition: {
       type: "spring",
       stiffness: 400,

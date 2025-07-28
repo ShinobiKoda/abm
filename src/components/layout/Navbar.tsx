@@ -75,7 +75,11 @@ export function Navbar() {
                 initial="hidden"
                 animate="visible"
               >
-                <motion.div variants={fadeInUp}>
+                <motion.div
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <div>
                     <Link
                       href="https://www.youtube.com/@Djisrael27"
@@ -86,7 +90,11 @@ export function Navbar() {
                   </div>
                 </motion.div>
 
-                <motion.div variants={fadeInUp}>
+                <motion.div
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <div>
                     <Link
                       href="https://www.pinterest.com/akinpelu_israel/"

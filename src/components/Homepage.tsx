@@ -53,7 +53,7 @@ export function Homepage() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInDown}
       >
-        <h1 className="text-2xl lg:text-4xl text-center font-semibold">
+        <h1 className="text-3xl lg:text-4xl text-center font-semibold">
           Affiliate <span className=" text-[#1a8671]">Business</span> Marketing
         </h1>
       </motion.div>

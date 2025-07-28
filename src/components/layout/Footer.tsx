@@ -1,6 +1,5 @@
 "use client";
 import { FaWhatsapp } from "react-icons/fa6";
-import { CiFacebook } from "react-icons/ci";
 import { FaPinterestP, FaYoutube } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -179,7 +178,9 @@ export function Footer() {
             </div>
 
             <div className="w-full flex items-center justify-center">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 type="submit"
                 disabled={isSubmitting}
                 className={`text-white font-bold text-lg lg:text-xl border rounded-md border-white py-2 px-6 min-w-[120px] flex items-center justify-center cursor-pointer ${
@@ -193,7 +194,7 @@ export function Footer() {
                 ) : (
                   "Sign Up"
                 )}
-              </button>
+              </motion.button>
             </div>
           </motion.form>
         </motion.div>
@@ -217,11 +218,7 @@ export function Footer() {
                 <FaWhatsapp size={30} />
               </Link>
             </motion.li>
-            <motion.li variants={scaleOnHover} whileHover="hover">
-              <Link href="#">
-                <CiFacebook size={30} />
-              </Link>
-            </motion.li>
+
             <motion.li variants={scaleOnHover} whileHover="hover">
               <Link
                 href="https://www.pinterest.com/akinpelu_israel/"
