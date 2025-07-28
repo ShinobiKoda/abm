@@ -2,16 +2,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { FaYoutube } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa6";
 import {
   fadeInDown,
   fadeInUp,
   staggerChildren,
-  staggerItem,
-  navbarStaggerChildren,
-  navbarStaggerItem,
   scaleOnHover,
   fadeIn,
 } from "../animations/motion";
@@ -53,58 +50,32 @@ export function Navbar() {
                 </div>
               </motion.div>
               <motion.div
-                variants={navbarStaggerChildren}
+                variants={fadeInUp}
                 initial="hidden"
                 animate="visible"
               >
                 <motion.ul
                   className="flex items-center gap-10 *:cursor-pointer *:hover:opacity-85"
-                  variants={navbarStaggerChildren}
+                  variants={staggerChildren}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  <motion.li
-                    variants={navbarStaggerItem}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Home
-                  </motion.li>
-                  <motion.li
-                    variants={navbarStaggerItem}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    About
-                  </motion.li>
-                  <motion.li
-                    variants={navbarStaggerItem}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Donate
-                  </motion.li>
-                  <motion.li
-                    variants={navbarStaggerItem}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Contact
-                  </motion.li>
+                  <motion.li variants={fadeInUp}>Home</motion.li>
+                  <motion.li variants={fadeInUp}>About</motion.li>
+                  <motion.li variants={fadeInUp}>Donate</motion.li>
+                  <motion.li variants={fadeInUp}>Contact</motion.li>
                 </motion.ul>
               </motion.div>
             </motion.div>
 
-            <motion.div>
+            <motion.div variants={fadeInUp}>
               <motion.div
-                variants={navbarStaggerChildren}
+                className="flex items-center gap-8 *:cursor-pointer *:hover:opacity-85"
+                variants={staggerChildren}
                 initial="hidden"
                 animate="visible"
-                className="flex items-center gap-8 *:cursor-pointer *:hover:opacity-85"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  variants={navbarStaggerItem}
-                >
+                <motion.div variants={fadeInUp}>
                   <div>
                     <Link
                       href="https://www.youtube.com/@Djisrael27"
@@ -115,11 +86,7 @@ export function Navbar() {
                   </div>
                 </motion.div>
 
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  variants={navbarStaggerItem}
-                >
+                <motion.div variants={fadeInUp}>
                   <div>
                     <Link
                       href="https://www.pinterest.com/akinpelu_israel/"
@@ -202,11 +169,7 @@ export function Navbar() {
                     initial="hidden"
                     animate="visible"
                   >
-                    <motion.li
-                      variants={staggerItem}
-                      whileHover={{ scale: 1.05, color: "#2563eb" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <motion.li variants={fadeInUp}>
                       <Link
                         href="/"
                         className="block text-lg hover:text-blue-600 transition-colors"
@@ -214,11 +177,7 @@ export function Navbar() {
                         Home
                       </Link>
                     </motion.li>
-                    <motion.li
-                      variants={staggerItem}
-                      whileHover={{ scale: 1.05, color: "#2563eb" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <motion.li variants={fadeInUp}>
                       <Link
                         href="/#"
                         className="block text-lg hover:text-blue-600 transition-colors"
@@ -226,11 +185,7 @@ export function Navbar() {
                         About
                       </Link>
                     </motion.li>
-                    <motion.li
-                      variants={staggerItem}
-                      whileHover={{ scale: 1.05, color: "#2563eb" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <motion.li variants={fadeInUp}>
                       <Link
                         href="/#"
                         className="block text-lg hover:text-blue-600 transition-colors"
@@ -238,11 +193,7 @@ export function Navbar() {
                         Donate
                       </Link>
                     </motion.li>
-                    <motion.li
-                      variants={staggerItem}
-                      whileHover={{ scale: 1.05, color: "#2563eb" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <motion.li variants={fadeInUp}>
                       <Link
                         href="/#"
                         className="block text-lg hover:text-blue-600 transition-colors"
