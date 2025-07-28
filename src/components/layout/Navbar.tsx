@@ -69,7 +69,7 @@ export function Navbar() {
                   <Link href="/">
                     <motion.li variants={fadeInUp}>Donate</motion.li>
                   </Link>
-                  <Link href="/">
+                  <Link href="/contact">
                     <motion.li variants={fadeInUp}>Contact</motion.li>
                   </Link>
                 </motion.ul>
@@ -195,7 +195,7 @@ export function Navbar() {
                     </motion.li>
                     <motion.li variants={fadeInUp}>
                       <Link
-                        href="/#"
+                        href="/about"
                         className="block text-lg hover:text-blue-600 transition-colors"
                       >
                         About
@@ -211,7 +211,7 @@ export function Navbar() {
                     </motion.li>
                     <motion.li variants={fadeInUp}>
                       <Link
-                        href="/#"
+                        href="/contact"
                         className="block text-lg hover:text-blue-600 transition-colors"
                       >
                         Contact
