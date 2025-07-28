@@ -14,7 +14,7 @@ import { RiShoppingBag4Line } from "react-icons/ri";
 import { PiChairThin } from "react-icons/pi";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
-import { div } from "motion/react-client";
+import { Footer } from "./layout/Footer";
 
 const testimonials = [
   {
@@ -46,255 +46,242 @@ const testimonials = [
 
 export function Homepage() {
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      exit={{ opacity: 0, y: -20 }}
-      variants={fadeIn}
-    >
-      <div className="w-full py-8 mt-[10px]">
-        <section className="bg-[#1a8671]"></section>
+    <div className="w-full mt-[10px]">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInDown}
+        transition={{ delay: 0.3 }}
+      >
+        <h1 className="text-2xl lg:text-4xl text-center font-semibold">
+          Affiliate <span className=" text-[#1a8671]">Business</span> Marketing
+        </h1>
+      </motion.div>
 
-        <section>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={zoomIn}
+        transition={{ delay: 0.6 }}
+      >
+        <div
+          className="w-full h-[500px] bg-center bg-cover mt-8"
+          style={{
+            backgroundImage: "url('/Images/business-meeting.jpg')",
+          }}
+        ></div>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 0.9 }}
+      >
+        <div className="mt-28 w-full px-4 lg:px-12 max-w-[1440px] mx-auto">
+          <div className="w-full flex-col space-y-2">
+            <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
+              Affiliate Sucess Strategies
+            </h2>
+            <div className="w-full h-1 bg-[#1a8671]"></div>
+          </div>
+
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={fadeInDown}
-            transition={{ delay: 0.3 }}
+            variants={staggerChildren}
+            transition={{ delay: 1.2 }}
           >
-            <h1 className="text-2xl lg:text-4xl text-center font-semibold">
-              Affiliate <span className=" text-[#1a8671]">Business</span>{" "}
-              Marketing
-            </h1>
+            <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <motion.div variants={fadeInUp}>
+                <motion.div
+                  variants={scaleOnHover}
+                  whileHover="hover"
+                  className="w-full flex flex-col items-center justify-center cursor-pointer"
+                >
+                  <div
+                    className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
+                    style={{
+                      backgroundImage:
+                        "url('https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/b072e267-7e84-46fe-a9b3-23084ec2d5b5.jpg')",
+                    }}
+                  ></div>
+                  <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
+                    CONTENT WRITING
+                  </p>
+                </motion.div>
+              </motion.div>
+              <motion.div variants={fadeInDown}>
+                <motion.div
+                  variants={scaleOnHover}
+                  whileHover="hover"
+                  className="w-full flex flex-col items-center justify-center cursor-pointer"
+                >
+                  <div
+                    className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
+                    style={{
+                      backgroundImage:
+                        "url('https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/24ed4b2e-ad55-43a3-8cc0-f5be9d1c47e7.jpg')",
+                    }}
+                  ></div>
+
+                  <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
+                    Youtube Promotion
+                  </p>
+                </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        transition={{ delay: 1.8 }}
+      >
+        <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
+          <div className="w-full flex-col space-y-2">
+            <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
+              Offered Services
+            </h2>
+            <div className="w-full h-1 bg-[#1a8671]"></div>
+          </div>
+
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={zoomIn}
-            transition={{ delay: 0.6 }}
+            variants={staggerChildren}
+            transition={{ delay: 2.1 }}
+            className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]"
           >
-            <div
-              className="w-full h-[500px] bg-center bg-cover mt-8"
-              style={{
-                backgroundImage: "url('/Images/business-meeting.jpg')",
-              }}
-            ></div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <LuNotebookPen className="text-[#1a8671] text-2xl" size={70} />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Online Education
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Providing educational content and courses through digital
+                  content.
+                </span>
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <SiMediamarkt className="text-[#1a8671] text-2xl" size={70} />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Digital Medai and content creation
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Producing and distributing digital content such as articles,
+                  videos, and podcasts.
+                </span>
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <RiShoppingBag4Line
+                className="text-[#1a8671] text-2xl"
+                size={70}
+              />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Dropshipping
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Selling products through an online store without holding
+                  inventory; products are shipped directly from the supplier.
+                </span>
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <PiChairThin className="text-[#1a8671] text-2xl" size={70} />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Digital Products
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Selling intangible products that can be delivered
+                  electronically.
+                </span>
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <MdOutlineRealEstateAgent
+                className="text-[#1a8671] text-2xl"
+                size={70}
+              />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Online Real Estate
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Managing and transacting real estate properties through
+                  digital platforms.
+                </span>
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+              <SiAppstore className="text-[#1a8671] text-2xl" size={70} />
+              <p className="flex flex-col gap-4 max-w-[320px]">
+                <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
+                  Mobile Apps
+                </span>
+                <span className="font-norma text-lg text-[#1a8671]">
+                  Developing and offering applications for smartphones and
+                  tablets.
+                </span>
+              </p>
+            </motion.div>
           </motion.div>
+        </div>
+      </motion.div>
 
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        transition={{ delay: 2.4 }}
+      >
+        <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
+          <div className="w-full flex-col space-y-2">
+            <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
+              Customer Reviews and Testimonials
+            </h2>
+            <div className="w-full h-1 bg-[#1a8671]  mb-14"></div>
+          </div>
           <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
             initial="hidden"
             animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.9 }}
+            variants={staggerChildren}
+            transition={{ delay: 2.7 }}
           >
-            <div className="mt-28 w-full px-4 lg:px-12 max-w-[1440px] mx-auto">
-              <div className="w-full flex-col space-y-2">
-                <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
-                  Affiliate Sucess Strategies
-                </h2>
-                <div className="w-full h-1 bg-[#1a8671]"></div>
-              </div>
-
+            {testimonials.map((testimonial, index) => (
               <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={staggerChildren}
-                transition={{ delay: 1.2 }}
+                key={index}
+                variants={fadeInUp}
+                className="w-full flex flex-col items-center justify-start relative pt-8"
               >
-                <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <motion.div variants={fadeInUp}>
-                    <motion.div
-                      variants={scaleOnHover}
-                      whileHover="hover"
-                      className="w-full flex flex-col items-center justify-center cursor-pointer"
-                    >
-                      <div
-                        className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
-                        style={{
-                          backgroundImage:
-                            "url('https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/b072e267-7e84-46fe-a9b3-23084ec2d5b5.jpg')",
-                        }}
-                      ></div>
-                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
-                        CONTENT WRITING
-                      </p>
-                    </motion.div>
-                  </motion.div>
-                  <motion.div variants={fadeInDown}>
-                    <motion.div
-                      variants={scaleOnHover}
-                      whileHover="hover"
-                      className="w-full flex flex-col items-center justify-center cursor-pointer"
-                    >
-                      <div
-                        className="w-full max-w-[400px] h-[300px] bg-center bg-contain bg-no-repeat"
-                        style={{
-                          backgroundImage:
-                            "url('https://us-ms.gr-cdn.com/getresponse-tnbXo/photos/24ed4b2e-ad55-43a3-8cc0-f5be9d1c47e7.jpg')",
-                        }}
-                      ></div>
-
-                      <p className="text-white font-medium py-6 w-full bg-[#1a8671] px-3 text-base lg:text-xl max-w-[500px] text-center">
-                        Youtube Promotion
-                      </p>
-                    </motion.div>
-                  </motion.div>
+                <div className="w-16 h-16 rounded-full bg-[#1a8671] flex items-center justify-center absolute z-20 -top-1 left-1/2 transform -translate-x-1/2">
+                  <FaRegUserCircle size={30} className="text-white" />
+                </div>
+                <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full h-full min-h-[280px] flex flex-col">
+                  <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1">
+                    {testimonial.review}
+                  </p>
                 </div>
               </motion.div>
-            </div>
+            ))}
           </motion.div>
+        </div>
+      </motion.div>
 
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ delay: 1.8 }}
-          >
-            <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
-              <div className="w-full flex-col space-y-2">
-                <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
-                  Offered Services
-                </h2>
-                <div className="w-full h-1 bg-[#1a8671]"></div>
-              </div>
-
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={staggerChildren}
-                transition={{ delay: 2.1 }}
-                className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]"
-              >
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <LuNotebookPen
-                    className="text-[#1a8671] text-2xl"
-                    size={70}
-                  />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Online Education
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Providing educational content and courses through digital
-                      content.
-                    </span>
-                  </p>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <SiMediamarkt className="text-[#1a8671] text-2xl" size={70} />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Digital Medai and content creation
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Producing and distributing digital content such as
-                      articles, videos, and podcasts.
-                    </span>
-                  </p>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <RiShoppingBag4Line
-                    className="text-[#1a8671] text-2xl"
-                    size={70}
-                  />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Dropshipping
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Selling products through an online store without holding
-                      inventory; products are shipped directly from the
-                      supplier.
-                    </span>
-                  </p>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <PiChairThin className="text-[#1a8671] text-2xl" size={70} />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Digital Products
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Selling intangible products that can be delivered
-                      electronically.
-                    </span>
-                  </p>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <MdOutlineRealEstateAgent
-                    className="text-[#1a8671] text-2xl"
-                    size={70}
-                  />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Online Real Estate
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Managing and transacting real estate properties through
-                      digital platforms.
-                    </span>
-                  </p>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex flex-col gap-4">
-                  <SiAppstore className="text-[#1a8671] text-2xl" size={70} />
-                  <p className="flex flex-col gap-4 max-w-[320px]">
-                    <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                      Mobile Apps
-                    </span>
-                    <span className="font-norma text-lg text-[#1a8671]">
-                      Developing and offering applications for smartphones and
-                      tablets.
-                    </span>
-                  </p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ delay: 2.4 }}
-          >
-            <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
-              <div className="w-full flex-col space-y-2">
-                <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
-                  Customer Reviews and Testimonials
-                </h2>
-                <div className="w-full h-1 bg-[#1a8671]  mb-14"></div>
-              </div>
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                initial="hidden"
-                animate="visible"
-                variants={staggerChildren}
-                transition={{ delay: 2.7 }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={index}
-                    variants={fadeInUp}
-                    className="w-full flex flex-col items-center justify-start relative pt-8"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-[#1a8671] flex items-center justify-center absolute z-20 -top-1 left-1/2 transform -translate-x-1/2">
-                      <FaRegUserCircle size={30} className="text-white" />
-                    </div>
-                    <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full h-full min-h-[280px] flex flex-col">
-                      <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1">
-                        {testimonial.review}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        </section>
-      </div>
-    </motion.div>
+      <Footer />
+    </div>
   );
 }
