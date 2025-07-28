@@ -49,9 +49,9 @@ export function Homepage() {
     <div className="w-full mt-[10px]">
       <motion.div
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         variants={fadeInDown}
-        transition={{ delay: 0.3 }}
       >
         <h1 className="text-2xl lg:text-4xl text-center font-semibold">
           Affiliate <span className=" text-[#1a8671]">Business</span> Marketing
@@ -60,9 +60,9 @@ export function Homepage() {
 
       <motion.div
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         variants={zoomIn}
-        transition={{ delay: 0.6 }}
       >
         <div
           className="w-full h-[500px] bg-center bg-cover mt-8"
@@ -74,9 +74,9 @@ export function Homepage() {
 
       <motion.div
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
         variants={fadeInUp}
-        transition={{ delay: 0.9 }}
       >
         <div className="mt-28 w-full px-4 lg:px-12 max-w-[1440px] mx-auto">
           <div className="w-full flex-col space-y-2">
@@ -88,9 +88,9 @@ export function Homepage() {
 
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={staggerChildren}
-            transition={{ delay: 1.2 }}
           >
             <div className="w-full max-w-[1440px] mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
               <motion.div variants={fadeInUp}>
@@ -137,9 +137,9 @@ export function Homepage() {
 
       <motion.div
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
         variants={fadeIn}
-        transition={{ delay: 1.8 }}
       >
         <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
           <div className="w-full flex-col space-y-2">
@@ -151,9 +151,9 @@ export function Homepage() {
 
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerChildren}
-            transition={{ delay: 2.1 }}
             className="w-full grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-[80px]"
           >
             <motion.div variants={fadeInUp} className="flex flex-col gap-4">
@@ -240,9 +240,9 @@ export function Homepage() {
 
       <motion.div
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         variants={fadeIn}
-        transition={{ delay: 2.4 }}
       >
         <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
           <div className="w-full flex-col space-y-2">
@@ -254,9 +254,9 @@ export function Homepage() {
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerChildren}
-            transition={{ delay: 2.7 }}
           >
             {testimonials.map((testimonial, index) => (
               <motion.div

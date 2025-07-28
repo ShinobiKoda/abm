@@ -7,6 +7,14 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
 import { ClipLoader } from "react-spinners";
 import { useState } from "react";
+import Link from "next/link";
+import { motion } from "motion/react";
+import {
+  fadeInUp,
+  fadeIn,
+  staggerChildren,
+  scaleOnHover,
+} from "../animations/motion";
 
 export function Footer() {
   const [formData, setFormData] = useState({
@@ -47,7 +55,6 @@ export function Footer() {
       [name]: value,
     }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({
         ...prev,
@@ -65,17 +72,31 @@ export function Footer() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setFormData({ name: "", email: "" });
     }, 2000);
   };
   return (
-    <div className="w-full bg-[#1a8671] mt-[60px]">
+    <motion.div
+      className="w-full bg-[#1a8671] mt-[60px]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeIn}
+    >
       <div className="w-full max-w-[1440px] mx-auto pt-18 pb-4 px-4 lg:px-12">
-        <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-8">
-          <div className="text-white w-full max-w-[400px] flex flex-col gap-4">
+        <motion.div
+          className="w-full flex flex-col lg:flex-row lg:justify-between gap-8"
+          variants={staggerChildren}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.div
+            className="text-white w-full max-w-[400px] flex flex-col gap-4"
+            variants={fadeInUp}
+          >
             <h2 className="font-bold text-2xl lg:text-3xl">
               Elite Affiliate Solutions
             </h2>
@@ -83,31 +104,47 @@ export function Footer() {
               Elite affiliate solutions, expert strategies for maximizing
               affiliate marketing sucess.
             </p>
-            <div className="flex flex-col gap-4">
-              <div className="text-white font-bold flex items-center gap-3">
+            <motion.div
+              className="flex flex-col gap-4"
+              variants={staggerChildren}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <motion.div
+                className="text-white font-bold flex items-center gap-3"
+                variants={fadeInUp}
+              >
                 <FaPhoneAlt size={20} />
                 <p>
                   <span>Phone: </span> <span>+234 813-545-7403</span>
                 </p>
-              </div>
-              <div className="text-white font-bold flex items-center gap-3">
+              </motion.div>
+              <motion.div
+                className="text-white font-bold flex items-center gap-3"
+                variants={fadeInUp}
+              >
                 <IoIosMail size={20} />
                 <p>
                   <span>E-Mail: </span> <span>Akinpeluisrael123@gmail.com</span>
                 </p>
-              </div>
-              <div className="text-white font-bold flex items-center gap-3">
+              </motion.div>
+              <motion.div
+                className="text-white font-bold flex items-center gap-3"
+                variants={fadeInUp}
+              >
                 <IoLocation size={20} />
                 <p>
                   <span>Location: </span>{" "}
                   <span>Isokun, Ilesa Osun state, Nigeria</span>
                 </p>
-              </div>
-            </div>
-          </div>
-          <form
+              </motion.div>
+            </motion.div>
+          </motion.div>
+          <motion.form
             onSubmit={handleSubmit}
             className="flex flex-col gap-6 w-full mb-20 max-w-[700px]"
+            variants={fadeInUp}
           >
             <div className="flex flex-col gap-2">
               <input
@@ -145,7 +182,7 @@ export function Footer() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`text-white font-bold text-lg lg:text-xl border rounded-md border-white py-2 px-6 min-w-[120px] flex items-center justify-center ${
+                className={`text-white font-bold text-lg lg:text-xl border rounded-md border-white py-2 px-6 min-w-[120px] flex items-center justify-center cursor-pointer ${
                   isSubmitting
                     ? "opacity-70 cursor-not-allowed"
                     : "hover:bg-white hover:text-[#1a8671] transition-colors"
@@ -158,27 +195,49 @@ export function Footer() {
                 )}
               </button>
             </div>
-          </form>
-        </div>
+          </motion.form>
+        </motion.div>
         <div className="bg-white h-1 mb-2"></div>
-        <div className="w-full flex justify-end">
-          <ul className="flex items-center gap-4 text-white font-bold">
-            <li>
-              <FaWhatsapp size={30} />
-            </li>
-            <li>
-              <CiFacebook size={30} />
-            </li>
-            <li>
-              <FaPinterestP size={30} />
-            </li>
-            <li>
-              <FaYoutube size={30} />
-            </li>
-            <li></li>
-          </ul>
-        </div>
+        <motion.div
+          className="w-full flex justify-end"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeInUp}
+        >
+          <motion.ul
+            className="flex items-center gap-4 text-white font-bold"
+            variants={staggerChildren}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <motion.li variants={scaleOnHover} whileHover="hover">
+              <Link href="#">
+                <FaWhatsapp size={30} />
+              </Link>
+            </motion.li>
+            <motion.li variants={scaleOnHover} whileHover="hover">
+              <Link href="#">
+                <CiFacebook size={30} />
+              </Link>
+            </motion.li>
+            <motion.li variants={scaleOnHover} whileHover="hover">
+              <Link
+                href="https://www.pinterest.com/akinpelu_israel/"
+                target="_blank"
+              >
+                <FaPinterestP size={30} />
+              </Link>
+            </motion.li>
+            <motion.li variants={scaleOnHover} whileHover="hover">
+              <Link href="https://www.youtube.com/@Djisrael27" target="_blank">
+                <FaYoutube size={30} />
+              </Link>
+            </motion.li>
+          </motion.ul>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
