@@ -60,10 +60,18 @@ export function Navbar() {
                   initial="hidden"
                   animate="visible"
                 >
-                  <motion.li variants={fadeInUp}>Home</motion.li>
-                  <motion.li variants={fadeInUp}>About</motion.li>
-                  <motion.li variants={fadeInUp}>Donate</motion.li>
-                  <motion.li variants={fadeInUp}>Contact</motion.li>
+                  <Link href="/">
+                    <motion.li variants={fadeInUp}>Home</motion.li>
+                  </Link>
+                  <Link href="/about">
+                    <motion.li variants={fadeInUp}>About</motion.li>
+                  </Link>
+                  <Link href="/">
+                    <motion.li variants={fadeInUp}>Donate</motion.li>
+                  </Link>
+                  <Link href="/">
+                    <motion.li variants={fadeInUp}>Contact</motion.li>
+                  </Link>
                 </motion.ul>
               </motion.div>
             </motion.div>
