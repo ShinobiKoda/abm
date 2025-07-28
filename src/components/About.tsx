@@ -18,7 +18,7 @@ export function About() {
       initial="hidden"
       animate="visible"
     >
-      <div className="w-full max-w-[1440px] mx-auto">
+      <div className="w-full max-w-[1440px] mx-auto px-4 lg:px-12">
         <motion.header className="w-full mt-[10px]" variants={fadeInUp}>
           <div className="space-y-2">
             <h1 className="text-3xl lg:text-4xl font-semibold text-[#1a8671]">
@@ -60,8 +60,8 @@ export function About() {
             </h2>
             <div className="w-full h-1 bg-[#1a8671]"></div>
           </div>
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
-            <motion.div className="w-full max-w-[300px]" variants={zoomIn}>
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-12 ">
+            <motion.div className="w-full max-w-[300px] mx-auto" variants={zoomIn}>
               <Image
                 src="/Images/akinpelu-isreal.jpg"
                 alt="Akinpelu Isreal"

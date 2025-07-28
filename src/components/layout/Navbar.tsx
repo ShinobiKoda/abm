@@ -20,6 +20,10 @@ export function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div>
       <motion.nav
@@ -189,6 +193,7 @@ export function Navbar() {
                       <Link
                         href="/"
                         className="block text-lg hover:text-blue-600 transition-colors"
+                        onClick={closeMenu}
                       >
                         Home
                       </Link>
@@ -197,6 +202,7 @@ export function Navbar() {
                       <Link
                         href="/about"
                         className="block text-lg hover:text-blue-600 transition-colors"
+                        onClick={closeMenu}
                       >
                         About
                       </Link>
@@ -205,6 +211,7 @@ export function Navbar() {
                       <Link
                         href="/#"
                         className="block text-lg hover:text-blue-600 transition-colors"
+                        onClick={closeMenu}
                       >
                         Donate
                       </Link>
@@ -213,6 +220,7 @@ export function Navbar() {
                       <Link
                         href="/contact"
                         className="block text-lg hover:text-blue-600 transition-colors"
+                        onClick={closeMenu}
                       >
                         Contact
                       </Link>

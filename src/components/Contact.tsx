@@ -126,7 +126,7 @@ export function Contact() {
       initial="hidden"
       animate="visible"
     >
-      <div className="w-full max-w-[1440px] mx-auto">
+      <div className="w-full max-w-[1440px] mx-auto px-4 lg:px-12">
         <motion.header variants={fadeInUp}>
           <div className="space-y-2">
             <h1 className="text-3xl lg:text-4xl font-semibold text-[#1a8671]">
