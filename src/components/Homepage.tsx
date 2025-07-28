@@ -20,27 +20,27 @@ const testimonials = [
   {
     name: "Angela Morrison",
     review:
-      "I really love working with Israel, the CEO of ABM. He did an amazing job on my landing page — it’s animated in a way that instantly attracts customers. It felt like magic seeing my ideas come to life. I highly recommend him for anyone who wants a page that converts.",
+      "I really love working with Israel, the CEO of ABM. He did an amazing job on my landing page — it's animated in a way that instantly attracts customers. It felt like magic seeing my ideas come to life. I highly recommend him for anyone who wants a page that converts.",
   },
   {
     name: "David Ekene",
     review:
-      "Israel created a form page for my online shoe business, and I’m honestly impressed. The layout is so clean and attractive — it reflects my brand perfectly and captures leads smoothly. He knew exactly what I needed, and I’m grateful for the result.",
+      "Israel created a form page for my online shoe business, and I'm honestly impressed. The layout is so clean and attractive — it reflects my brand perfectly and captures leads smoothly. He knew exactly what I needed, and I'm grateful for the result.",
   },
   {
     name: "Andrew Philip",
     review:
-      "I really love how Israel scripted my leads. He gave me the names, the contact details, and organized everything cleanly. But that’s not even all — he also built a smart dashboard that tracks every lead from my Excel sheet. At first, I thought his $3.58 price was a joke — now I see it's a steal. I totally recommend him.",
+      "I really love how Israel scripted my leads. He gave me the names, the contact details, and organized everything cleanly. But that's not even all — he also built a smart dashboard that tracks every lead from my Excel sheet. At first, I thought his $3.58 price was a joke — now I see it's a steal. I totally recommend him.",
   },
   {
     name: "Stephanie Okoro",
     review:
-      "ABM handled everything from lead generation to final dashboard delivery. I was amazed. Israel built my system like a pro — now I can see how many verified leads I have in one glance. He’s honest, detailed, and timely. I’ll be hiring again",
+      "ABM handled everything from lead generation to final dashboard delivery. I was amazed. Israel built my system like a pro — now I can see how many verified leads I have in one glance. He's honest, detailed, and timely. I'll be hiring again",
   },
   {
     name: "Michael James",
     review:
-      "From start to finish, Israel delivered more than expected. He redesigned my landing page, set up the integration form, and synced everything into a beautiful, automated dashboard. He’s the kind of person you keep working with for the long run",
+      "From start to finish, Israel delivered more than expected. He redesigned my landing page, set up the integration form, and synced everything into a beautiful, automated dashboard. He's the kind of person you keep working with for the long run",
   },
 ];
 
