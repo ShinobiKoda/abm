@@ -60,13 +60,6 @@ const donationTiers = [
   },
 ];
 
-const impactStats = [
-  { number: "500+", label: "Entrepreneurs Helped" },
-  { number: "150+", label: "Successful Campaigns" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "₦800M+", label: "Revenue Generated" },
-];
-
 export function Donate() {
   const [selectedAmount, setSelectedAmount] = useState(25000);
   const [customAmount, setCustomAmount] = useState("");
@@ -194,7 +187,6 @@ export function Donate() {
           </div>
         </motion.header>
 
-        {/* Mission Statement */}
         <motion.section className="mt-8 space-y-6" variants={fadeInDown}>
           <h2 className="text-2xl lg:text-3xl font-semibold text-[#1a8671]">
             Empowering Entrepreneurs Through Affiliate Marketing
@@ -208,37 +200,6 @@ export function Donate() {
           </p>
         </motion.section>
 
-        {/* Impact Stats */}
-        <motion.section
-          className="mt-16"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h3 className="text-xl lg:text-2xl font-semibold text-[#1a8671] mb-8 text-center">
-            Our Impact So Far
-          </h3>
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerChildren}
-          >
-            {impactStats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={zoomIn}
-                className="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-lg"
-              >
-                <div className="text-3xl lg:text-4xl font-bold text-[#1a8671] mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Donation Tiers */}
         <motion.section
           className="mt-20"
           variants={fadeIn}
@@ -287,7 +248,6 @@ export function Donate() {
           </motion.div>
         </motion.section>
 
-        {/* Donation Form */}
         <motion.section
           className="mt-20 max-w-2xl mx-auto"
           variants={fadeIn}
@@ -318,7 +278,6 @@ export function Donate() {
             className="bg-white border border-gray-200 rounded-lg p-6 shadow-lg space-y-6"
             variants={staggerChildren}
           >
-            {/* Amount Selection */}
             <motion.div variants={fadeInUp}>
               <label className="block text-[#1a8671] font-semibold mb-4">
                 Select Donation Amount
@@ -353,7 +312,6 @@ export function Donate() {
               )}
             </motion.div>
 
-            {/* Donor Information */}
             <motion.div variants={fadeInUp}>
               <input
                 type="text"
@@ -397,7 +355,6 @@ export function Donate() {
               />
             </motion.div>
 
-            {/* Submit Button */}
             <motion.div variants={fadeInUp}>
               <button
                 type="submit"
@@ -422,7 +379,6 @@ export function Donate() {
           </motion.form>
         </motion.section>
 
-        {/* Thank You Message */}
         <motion.section
           className="mt-20 text-center"
           variants={fadeIn}
