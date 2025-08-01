@@ -214,7 +214,7 @@ export function Footer() {
             viewport={{ once: true, amount: 0.5 }}
           >
             <motion.li variants={scaleOnHover} whileHover="hover">
-              <Link href="#">
+              <Link href="https://wa.me/+2348135457403" target="_blank">
                 <FaWhatsapp size={30} />
               </Link>
             </motion.li>

@@ -70,7 +70,7 @@ export function Navbar() {
                   <Link href="/about">
                     <motion.li variants={fadeInUp}>About</motion.li>
                   </Link>
-                  <Link href="/">
+                  <Link href="/donate">
                     <motion.li variants={fadeInUp}>Donate</motion.li>
                   </Link>
                   <Link href="/contact">
@@ -209,7 +209,7 @@ export function Navbar() {
                     </motion.li>
                     <motion.li variants={fadeInUp}>
                       <Link
-                        href="/#"
+                        href="/donate"
                         className="block text-lg hover:text-blue-600 transition-colors"
                         onClick={closeMenu}
                       >

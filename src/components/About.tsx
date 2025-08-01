@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { Footer } from "./layout/Footer";
 import {
@@ -61,14 +60,10 @@ export function About() {
             <div className="w-full h-1 bg-[#1a8671]"></div>
           </div>
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 ">
-            <motion.div className="w-full max-w-[300px] mx-auto" variants={zoomIn}>
-              <Image
-                src="/Images/akinpelu-isreal.jpg"
-                alt="Akinpelu Isreal"
-                width={100}
-                height={100}
-                className="w-full"
-              />
+            <motion.div className="w-full max-w-[400px] h-[500px] mx-auto bg-center bg-cover bg-no-repeat" style={{
+              backgroundImage: "url('/Images/akinpelu-isreal.jpg')"
+            }} variants={zoomIn}>
+            
             </motion.div>
             <motion.div className="w-full space-y-8" variants={fadeInDown}>
               <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671]">
