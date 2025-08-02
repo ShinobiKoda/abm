@@ -41,9 +41,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Stephanie Okoro",
+    name: "Prince Akpabio, Founder, VeriEditAI",
     review:
-      "ABM handled everything from lead generation to final dashboard delivery. I was amazed. Israel built my system like a pro — now I can see how many verified leads I have in one glance. He's honest, detailed, and timely. I'll be hiring again",
+      "Prince Akpabio Working with Israel has been an outstanding experience. He understands exactly what I need when it comes to link promotion and lead generation. His consistency, communication, and results-driven approach have made him a valuable part of my digital growth journey. I trust him fully with my tasks, and he always delivers on time with top quality. I highly recommend him to anyone looking for someone reliable and skilled in digital marketing",
+    image: "/Images/prince-akpabio.jpg",
     rating: 4,
   },
   {
