@@ -223,7 +223,7 @@ export function Homepage() {
               <SiMediamarkt className="text-[#1a8671] text-2xl" size={70} />
               <p className="flex flex-col gap-4 max-w-[320px]">
                 <span className="font-medium text-lg lg:text-xl text-[#1a8671]">
-                  Digital Medai and content creation
+                  Digital Media and content creation
                 </span>
                 <span className="font-norma text-lg text-[#1a8671]">
                   Producing and distributing digital content such as articles,

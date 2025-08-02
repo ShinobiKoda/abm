@@ -124,10 +124,8 @@ export function FAQ() {
                 variants={fadeInUp}
                 className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               >
-                {/* Background Pattern */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#1a8671]/10 to-transparent rounded-full transform translate-x-16 -translate-y-16"></div>
 
-                {/* Icon Container */}
                 <div className="relative p-8">
                   <div className="flex items-start justify-between mb-6">
                     <div className="p-4 bg-gradient-to-br from-[#1a8671] to-[#156b5a] rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -138,7 +136,6 @@ export function FAQ() {
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="space-y-4">
                     <h4 className="text-2xl font-bold text-gray-800 group-hover:text-[#1a8671] transition-colors duration-300">
                       {service.title}
@@ -151,11 +148,9 @@ export function FAQ() {
                     </p>
                   </div>
 
-                  {/* Decorative Line */}
                   <div className="mt-6 h-1 w-16 bg-gradient-to-r from-[#1a8671] to-[#156b5a] rounded-full group-hover:w-24 transition-all duration-300"></div>
                 </div>
 
-                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1a8671]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </motion.div>
             ))}
