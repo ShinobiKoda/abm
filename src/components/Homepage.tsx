@@ -15,7 +15,7 @@ import { SiMediamarkt, SiAppstore } from "react-icons/si";
 import { RiShoppingBag4Line } from "react-icons/ri";
 import { PiChairThin } from "react-icons/pi";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Footer } from "./layout/Footer";
 
 const testimonials = [
@@ -24,29 +24,34 @@ const testimonials = [
     review:
       "I really love working with Israel, the CEO of ABM. He did an amazing job on my landing page — it's animated in a way that instantly attracts customers. It felt like magic seeing my ideas come to life. I highly recommend him for anyone who wants a page that converts.",
     image: "/Images/angela-morrison.jpg",
+    rating: 5,
   },
   {
     name: "David Ekene",
     review:
       "Israel created a form page for my online shoe business, and I'm honestly impressed. The layout is so clean and attractive — it reflects my brand perfectly and captures leads smoothly. He knew exactly what I needed, and I'm grateful for the result.",
     image: "/Images/david-ekene.jpg",
+    rating: 4.5,
   },
   {
     name: "Andrew Philip",
     review:
       "I really love how Israel scripted my leads. He gave me the names, the contact details, and organized everything cleanly. But that's not even all — he also built a smart dashboard that tracks every lead from my Excel sheet. At first, I thought his $3.58 price was a joke — now I see it's a steal. I totally recommend him.",
     image: "/Images/andrew-philip.jpg",
+    rating: 5,
   },
   {
     name: "Stephanie Okoro",
     review:
       "ABM handled everything from lead generation to final dashboard delivery. I was amazed. Israel built my system like a pro — now I can see how many verified leads I have in one glance. He's honest, detailed, and timely. I'll be hiring again",
+    rating: 4,
   },
   {
     name: "Michael James",
     review:
       "From start to finish, Israel delivered more than expected. He redesigned my landing page, set up the integration form, and synced everything into a beautiful, automated dashboard. He's the kind of person you keep working with for the long run",
     image: "/Images/micheal-james.jpg",
+    rating: 4.5,
   },
 ];
 
@@ -56,13 +61,38 @@ export function Homepage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000); 
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   const handleDotClick = (index: number) => {
     setCurrentTestimonial(index);
+  };
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={i} className="text-[#1a8671]" size={16} />);
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <FaStarHalfAlt key="half" className="text-[#1a8671]" size={16} />
+      );
+    }
+
+    const remainingStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < remainingStars; i++) {
+      stars.push(
+        <FaStar key={`empty-${i}`} className="text-gray-300" size={16} />
+      );
+    }
+
+    return stars;
   };
 
   return (
@@ -310,6 +340,12 @@ export function Homepage() {
                         <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1 text-center">
                           {testimonial.review}
                         </p>
+                        <div className="flex justify-center items-center mt-4 gap-1">
+                          {renderStars(testimonial.rating)}
+                          <span className="ml-2 text-sm text-gray-600 font-medium">
+                            {testimonial.rating}/5
+                          </span>
+                        </div>
                       </div>
                     </motion.div>
                   </div>
@@ -322,7 +358,7 @@ export function Homepage() {
                 <button
                   key={index}
                   onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
                     currentTestimonial === index
                       ? "bg-[#1a8671] scale-125"
                       : "bg-gray-300 hover:bg-gray-400"
