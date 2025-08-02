@@ -53,11 +53,10 @@ const testimonials = [
 export function Homepage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -270,45 +269,69 @@ export function Homepage() {
             <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
               Customer Reviews and Testimonials
             </h2>
-            <div className="w-full h-1 bg-[#1a8671]  mb-14"></div>
+            <div className="w-full h-1 bg-[#1a8671] mb-14"></div>
           </div>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerChildren}
-          >
-            {testimonials.map((testimonial, index) => (
+
+          <div className="relative w-full max-w-4xl mx-auto">
+            <div className="overflow-hidden">
               <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="w-full flex flex-col items-center justify-start relative pt-8"
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentTestimonial * 100}%)`,
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeIn}
               >
-                <div className="w-20 h-20 rounded-full bg-[#1a8671] overflow-hidden flex items-center justify-center absolute z-20 -top-1 left-1/2 transform -translate-x-1/2">
-                  {testimonial.image ? (
-                    <Image
-                      src={testimonial.image}
-                      alt="Testimonial Profile"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <FaRegUserCircle size={30} className="text-white" />
-                  )}
-                </div>
-                <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full h-full min-h-[280px] flex flex-col">
-                  <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1">
-                    {testimonial.review}
-                  </p>
-                </div>
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-4">
+                    <motion.div
+                      variants={fadeInUp}
+                      className="w-full flex flex-col items-center justify-start relative pt-12 max-w-2xl mx-auto"
+                    >
+                      <div className="w-20 h-20 rounded-full bg-[#1a8671] overflow-hidden flex items-center justify-center absolute z-20 top-0 left-1/2 transform -translate-x-1/2">
+                        {testimonial.image ? (
+                          <Image
+                            src={testimonial.image}
+                            alt="Testimonial Profile"
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <FaRegUserCircle size={30} className="text-white" />
+                        )}
+                      </div>
+                      <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full min-h-[300px] flex flex-col">
+                        <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1 text-center">
+                          {testimonial.review}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            </div>
+
+            <div className="flex justify-center mt-8 space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+                    currentTestimonial === index
+                      ? "bg-[#1a8671] scale-125"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </motion.div>
 

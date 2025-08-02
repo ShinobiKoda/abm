@@ -30,7 +30,7 @@ export function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Auto-hide success message after 5 seconds
+
   useEffect(() => {
     if (isSubmitted) {
       const timer = setTimeout(() => {
@@ -84,7 +84,6 @@ export function Contact() {
       [name]: value,
     }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({
         ...prev,
@@ -102,7 +101,7 @@ export function Contact() {
 
     setIsLoading(true);
 
-    // Simulate form submission
+
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setIsSubmitted(true);
