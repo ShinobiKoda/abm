@@ -97,7 +97,7 @@ export function Footer() {
             variants={fadeInUp}
           >
             <h2 className="font-bold text-2xl lg:text-3xl">
-              Elite Affiliate Solutions
+             ABM Solutions and Tech
             </h2>
             <p className="font-normal ext-base lg:text-xl">
               Elite affiliate solutions, expert strategies for maximizing

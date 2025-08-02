@@ -213,7 +213,7 @@ export function Navbar() {
                         className="block text-lg hover:text-blue-600 transition-colors"
                         onClick={closeMenu}
                       >
-                        Donate
+                        FAQ&apos;s
                       </Link>
                     </motion.li>
                     <motion.li variants={fadeInUp}>
