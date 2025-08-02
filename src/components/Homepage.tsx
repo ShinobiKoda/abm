@@ -1,5 +1,7 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import {
   fadeInUp,
   fadeIn,
@@ -21,16 +23,19 @@ const testimonials = [
     name: "Angela Morrison",
     review:
       "I really love working with Israel, the CEO of ABM. He did an amazing job on my landing page — it's animated in a way that instantly attracts customers. It felt like magic seeing my ideas come to life. I highly recommend him for anyone who wants a page that converts.",
+    image: "/Images/angela-morrison.jpg",
   },
   {
     name: "David Ekene",
     review:
       "Israel created a form page for my online shoe business, and I'm honestly impressed. The layout is so clean and attractive — it reflects my brand perfectly and captures leads smoothly. He knew exactly what I needed, and I'm grateful for the result.",
+    image: "/Images/david-ekene.jpg",
   },
   {
     name: "Andrew Philip",
     review:
       "I really love how Israel scripted my leads. He gave me the names, the contact details, and organized everything cleanly. But that's not even all — he also built a smart dashboard that tracks every lead from my Excel sheet. At first, I thought his $3.58 price was a joke — now I see it's a steal. I totally recommend him.",
+    image: "/Images/andrew-philip.jpg",
   },
   {
     name: "Stephanie Okoro",
@@ -41,10 +46,26 @@ const testimonials = [
     name: "Michael James",
     review:
       "From start to finish, Israel delivered more than expected. He redesigned my landing page, set up the integration form, and synced everything into a beautiful, automated dashboard. He's the kind of person you keep working with for the long run",
+    image: "/Images/micheal-james.jpg",
   },
 ];
 
 export function Homepage() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleDotClick = (index: number) => {
+    setCurrentTestimonial(index);
+  };
+
   return (
     <div className="w-full mt-[10px]">
       <motion.div
@@ -264,8 +285,18 @@ export function Homepage() {
                 variants={fadeInUp}
                 className="w-full flex flex-col items-center justify-start relative pt-8"
               >
-                <div className="w-16 h-16 rounded-full bg-[#1a8671] flex items-center justify-center absolute z-20 -top-1 left-1/2 transform -translate-x-1/2">
-                  <FaRegUserCircle size={30} className="text-white" />
+                <div className="w-20 h-20 rounded-full bg-[#1a8671] overflow-hidden flex items-center justify-center absolute z-20 -top-1 left-1/2 transform -translate-x-1/2">
+                  {testimonial.image ? (
+                    <Image
+                      src={testimonial.image}
+                      alt="Testimonial Profile"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <FaRegUserCircle size={30} className="text-white" />
+                  )}
                 </div>
                 <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full h-full min-h-[280px] flex flex-col">
                   <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
