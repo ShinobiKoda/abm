@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FaYoutube } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import {
   fadeInDown,
   fadeInUp,
@@ -238,6 +239,7 @@ export function Navbar() {
                         <Link
                           href="https://www.youtube.com/@Djisrael27"
                           target="_blank"
+                          onClick={closeMenu}
                         >
                           <FaYoutube size={35} />
                         </Link>
@@ -252,8 +254,24 @@ export function Navbar() {
                         <Link
                           href="https://www.pinterest.com/akinpelu_israel/"
                           target="_blank"
+                          onClick={closeMenu}
                         >
                           <FaPinterestP size={35} />
+                        </Link>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <div>
+                        <Link
+                          href="https://wa.me/+2348135457403"
+                          target="_blank"
+                          onClick={closeMenu}
+                        >
+                          <FaWhatsapp size={35} />
                         </Link>
                       </div>
                     </motion.div>
