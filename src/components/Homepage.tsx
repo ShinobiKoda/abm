@@ -45,7 +45,7 @@ const testimonials = [
     review:
       "Prince Akpabio Working with Israel has been an outstanding experience. He understands exactly what I need when it comes to link promotion and lead generation. His consistency, communication, and results-driven approach have made him a valuable part of my digital growth journey. I trust him fully with my tasks, and he always delivers on time with top quality. I highly recommend him to anyone looking for someone reliable and skilled in digital marketing",
     image: "/Images/prince-akpabio.jpg",
-    rating: 4,
+    rating: 5,
   },
   {
     name: "Michael James",
@@ -58,17 +58,44 @@ const testimonials = [
 
 export function Homepage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
+    if (isDragging) return;
+
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isDragging]);
 
   const handleDotClick = (index: number) => {
     setCurrentTestimonial(index);
+  };
+
+  const handleDragEnd = (
+    _: unknown,
+    info: { offset: { x: number }; velocity: { x: number } }
+  ) => {
+    const offset = info.offset.x;
+    const velocity = info.velocity.x;
+
+    if (Math.abs(offset) > 50 || Math.abs(velocity) > 500) {
+      if (offset > 0 || velocity > 0) {
+        setCurrentTestimonial((prev) =>
+          prev === 0 ? testimonials.length - 1 : prev - 1
+        );
+      } else {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      }
+    }
+
+    setIsDragging(false);
+  };
+
+  const handleDragStart = () => {
+    setIsDragging(true);
   };
 
   const renderStars = (rating: number) => {
@@ -306,17 +333,31 @@ export function Homepage() {
           <div className="relative w-full max-w-4xl mx-auto">
             <div className="overflow-hidden">
               <motion.div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentTestimonial * 100}%)`,
+                className="flex cursor-grab active:cursor-grabbing"
+                animate={{
+                  x: `-${currentTestimonial * 100}%`,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
                 }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={fadeIn}
+                drag="x"
+                dragConstraints={{ left: -1000, right: 1000 }}
+                dragElastic={0.2}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                whileDrag={{ scale: 0.98 }}
               >
                 {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
+                  <div
+                    key={index}
+                    className="w-full flex-shrink-0 px-4 select-none"
+                  >
                     <motion.div
                       variants={fadeInUp}
                       className="w-full flex flex-col items-center justify-start relative pt-12 max-w-2xl mx-auto"
