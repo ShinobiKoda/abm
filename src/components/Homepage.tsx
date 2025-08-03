@@ -316,102 +316,88 @@ export function Homepage() {
         </div>
       </motion.div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeIn}
-      >
-        <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
-          <div className="w-full flex-col space-y-2">
-            <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
-              Customer Reviews and Testimonials
-            </h2>
-            <div className="w-full h-1 bg-[#1a8671] mb-14"></div>
+      <div className="w-full mt-[200px]  px-4 lg:px-12 max-w-[1440px] mx-auto">
+        <div className="w-full flex-col space-y-2">
+          <h2 className="font-bold text-xl lg:text-3xl italic text-[#1a8671]">
+            Customer Reviews and Testimonials
+          </h2>
+          <div className="w-full h-1 bg-[#1a8671] mb-14"></div>
+        </div>
+
+        <div className="relative w-full max-w-4xl mx-auto">
+          <div className="overflow-hidden">
+            <motion.div
+              className="flex cursor-grab active:cursor-grabbing"
+              animate={{
+                x: `-${currentTestimonial * 100}%`,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              }}
+              drag="x"
+              dragConstraints={{ left: -1000, right: 1000 }}
+              dragElastic={0.2}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
+              whileDrag={{ scale: 0.98 }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 px-4 select-none"
+                >
+                  <div className="w-full flex flex-col items-center justify-start relative pt-12 max-w-2xl mx-auto">
+                    <div className="w-20 h-20 rounded-full bg-[#1a8671] overflow-hidden flex items-center justify-center absolute z-20 top-0 left-1/2 transform -translate-x-1/2">
+                      {testimonial.image ? (
+                        <Image
+                          src={testimonial.image}
+                          alt="Testimonial Profile"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <FaRegUserCircle size={30} className="text-white" />
+                      )}
+                    </div>
+                    <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full min-h-[300px] flex flex-col">
+                      <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1 text-center">
+                        {testimonial.review}
+                      </p>
+                      <div className="flex justify-center items-center mt-4 gap-1">
+                        {renderStars(testimonial.rating)}
+                        <span className="ml-2 text-sm text-gray-600 font-medium">
+                          {testimonial.rating}/5
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
-          <div className="relative w-full max-w-4xl mx-auto">
-            <div className="overflow-hidden">
-              <motion.div
-                className="flex cursor-grab active:cursor-grabbing"
-                animate={{
-                  x: `-${currentTestimonial * 100}%`,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30,
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeIn}
-                drag="x"
-                dragConstraints={{ left: -1000, right: 1000 }}
-                dragElastic={0.2}
-                onDragStart={handleDragStart}
-                onDragEnd={handleDragEnd}
-                whileDrag={{ scale: 0.98 }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="w-full flex-shrink-0 px-4 select-none"
-                  >
-                    <motion.div
-                      variants={fadeInUp}
-                      className="w-full flex flex-col items-center justify-start relative pt-12 max-w-2xl mx-auto"
-                    >
-                      <div className="w-20 h-20 rounded-full bg-[#1a8671] overflow-hidden flex items-center justify-center absolute z-20 top-0 left-1/2 transform -translate-x-1/2">
-                        {testimonial.image ? (
-                          <Image
-                            src={testimonial.image}
-                            alt="Testimonial Profile"
-                            width={80}
-                            height={80}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <FaRegUserCircle size={30} className="text-white" />
-                        )}
-                      </div>
-                      <div className="bg-white border border-gray-200 px-6 py-8 pt-12 rounded-lg shadow-lg w-full min-h-[300px] flex flex-col">
-                        <h3 className="font-semibold text-lg lg:text-xl text-[#1a8671] mb-4 text-center">
-                          {testimonial.name}
-                        </h3>
-                        <p className="text-gray-700 text-base leading-8 font-medium lg:text-lg flex-1 text-center">
-                          {testimonial.review}
-                        </p>
-                        <div className="flex justify-center items-center mt-4 gap-1">
-                          {renderStars(testimonial.rating)}
-                          <span className="ml-2 text-sm text-gray-600 font-medium">
-                            {testimonial.rating}/5
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <div className="flex justify-center mt-8 space-x-3">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleDotClick(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
-                    currentTestimonial === index
-                      ? "bg-[#1a8671] scale-125"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
+          <div className="flex justify-center mt-8 space-x-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
+                  currentTestimonial === index
+                    ? "bg-[#1a8671] scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <Footer />
     </div>
