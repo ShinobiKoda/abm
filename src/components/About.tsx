@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { Footer } from "./layout/Footer";
+import Image from "next/image"
 import {
   fadeInUp,
   fadeIn,
@@ -12,7 +13,6 @@ import {
   FaEnvelope,
   FaYoutube,
   FaMapMarkerAlt,
-  FaUserTie,
   FaBullseye,
   FaChartLine,
   FaVideo,
@@ -145,10 +145,18 @@ export function About() {
         <motion.header className="w-full mt-[10px]" variants={fadeInUp}>
           <div className="text-center space-y-6">
             <motion.div
-              className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#1a8671] to-[#156b5a] flex items-center justify-center shadow-2xl"
+              className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#1a8671] to-[#156b5a] flex items-center justify-center shadow-2xl overflow-hidden"
               variants={zoomIn}
             >
-              <FaUserTie className="text-white" size={48} />
+              {/* <FaUserTie className="text-white" size={48} /> */}
+              <Image 
+                src="/Images/about-profile-pic.jpg"
+                alt="Profile Pic"
+                width={100}
+                height={100}
+                className="w-full"
+              />
+
             </motion.div>
             <div className="space-y-2">
               <h1 className="text-4xl lg:text-5xl font-bold text-[#1a8671]">
